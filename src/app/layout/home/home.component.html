@@ -1,0 +1,43 @@
+
+       <div class="container-busca">
+           <div class="busca">
+            <button class="button-adicionar">Adicionar</button>
+             <input type="text">
+             <button class="button-busca">
+              <mat-icon class="busca-icon" aria-hidden="true" aria-label="Example-home-icon" fontIcon="search"></mat-icon>
+             </button>
+           </div>
+        </div>
+
+        <div>
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Descrição</th>
+                <th>Medida</th>
+                <th>Estoque</th>
+                <th>Fornecedor</th>
+                <th>Preço de custo</th>
+                <th>Preço de venda</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let produto of produtos">
+              <tr>
+                <td>{{ produto.id }}</td>
+                <td>{{ produto.nome  }}</td>
+                <td>{{ produto.categoria  }}</td>
+                <td>{{ produto.descricao  }}</td>
+                <td>{{ produto.medida  }}</td>
+                <td>{{ produto.estoque  }}</td>
+                <td>{{ produto.fornecedor  }}</td>
+                <td>{{ produto.preco_custo  }}</td>
+                <td>{{ produto.preco_venda  }}</td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+  

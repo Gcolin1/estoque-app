@@ -1,0 +1,19 @@
+<mat-drawer-container class="container" autosize> 
+    <mat-drawer #drawer class="sidenav" mode="side">
+      <!--Menu-->
+      <mat-icon class="menu-link " aria-hidden="true" aria-label="Example-home-icon" fontIcon="home" routerLink="/" routerLinkActive="active"></mat-icon><br>
+      <mat-icon class="menu-link " aria-hidden="true" aria-label="Example-home-icon" fontIcon="trolley" routerLink="/movimentacao" routerLinkActive="active"></mat-icon>
+    </mat-drawer>
+  
+    <div>
+      <button style="padding-left: 20px;" type="button" mat-button (click)="drawer.toggle()">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu"></mat-icon>
+      </button>
+      
+      <!--Conteudo da pagina-->
+      <section class="sidenav-content" >
+        <router-outlet></router-outlet>
+      </section>
+    </div>
+  
+  </mat-drawer-container>
