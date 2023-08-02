@@ -20,12 +20,6 @@
     height: 100vh;
 }
 
-
-
-  .mat-mdc-button.mat-unthemed:hover{
-    transition: 200ms ease-in-out;
-  }
-
   .button{
     text-align: center;
   }

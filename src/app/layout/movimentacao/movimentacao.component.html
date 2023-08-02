@@ -1,1 +1,61 @@
-<p>movimentacao works!</p>
+<section class="container-forms">
+    <div class="container-retirada">
+        <h2>Retirada de estoque</h2>
+        <form>
+            <input type="text" placeholder="Código">
+            <input type="text" placeholder="Quantidade">
+            <input type="text" placeholder="Destino">
+            <input type="text" placeholder="Responsavel">
+            <input type="text" placeholder="Data">
+            <input type="text" placeholder="Horário">
+            <input type="text" placeholder="Motivo">
+            <button class="btn-con" type="submit">Confirmar</button>
+        </form>
+    </div>
+
+    <div  class="container-reposicao">
+        <h2>Reposição de estoque</h2>
+        <form>
+            <input type="text" placeholder="Código">
+            <input type="text" placeholder="Quantidade">
+            <input type="text" placeholder="Destino">
+            <input type="text" placeholder="Responsavel">
+            <input type="text" placeholder="Data">
+            <input type="text" placeholder="Horário">
+            <input type="text" placeholder="Motivo">
+            <button class="btn-con" type="submit">Confirmar</button>
+        </form>
+    </div>
+</section>
+
+<section class="container-table">
+    <h2>Movimentação</h2>
+
+    <div>
+        <table class="tabela">
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Quantidade retirada</th>
+              <th>Destino</th>
+              <th>Motivo</th>
+              <th>Responsavel</th>
+              <th>Data</th>
+              <th>Hora</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let movimentacao of movimentacao">
+            <tr>
+              <td>{{ movimentacao.id_produto }}</td>
+              <td>{{ movimentacao.estoque }}</td>
+              <td>{{ movimentacao.destino }}</td>
+              <td>{{ movimentacao.motivo }}</td>
+              <td>{{ movimentacao.responsavel }}</td>
+              <td>{{ movimentacao.data }}</td>
+              <td>{{ movimentacao.hora }}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+</section>

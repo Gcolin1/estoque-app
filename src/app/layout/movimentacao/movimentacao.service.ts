@@ -6,13 +6,13 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   providedIn: 'root'
 })
 
-export class ListaProdutoService{
+export class ListaMovimentacaoService{
 
-  private urlApi = "http://localhost:8080/produtos"
+  private urlApi = "http://localhost:8080/movimentacao"
 
   constructor(private http : HttpClient) { }
 
-  getProdutos(){
+  getMovimentacao(){
     return this.http.get<any>(this.urlApi)
   }
 

@@ -1,0 +1,85 @@
+.container-forms{
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.container-forms h2{
+    color: #FFB661;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.container-forms input{
+  width: 300px;
+  padding: 10px 10px;
+  margin: 5px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  
+}
+
+.container-forms input::placeholder{
+    color: #000;
+}
+
+.btn-con{
+    border: none;
+    background-color: #2aa036;
+    color: #f2f2f2;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 50px;
+    padding: 10px 15px;
+    margin: 5px;
+}
+
+  
+  
+.btn-con:hover{
+background-color: #1f7428;
+transition: ease-in-out 200ms;
+}
+
+  /* ============================ MOVIMENTAÇÃO =============================== */
+
+.container-table h2{
+color: #FFB661;
+font-size: 2em;
+margin-bottom: 20px;
+}
+
+.tabela {
+width: 100%;
+flex: 1;
+text-align: center;
+margin-top: 40px;
+-webkit-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
+}
+
+.tabela th, td{
+padding: 10px 10px;
+}
+
+.tabela td:nth-child(4){
+overflow-x: hidden;
+}
+  
+tbody{
+  font-size: 1.1em;
+}
+
+tbody:nth-child(even) {
+  background-color: #379eff48;
+  border: none;
+}
+
+
+
+  
