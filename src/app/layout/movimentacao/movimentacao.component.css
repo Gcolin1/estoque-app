@@ -21,6 +21,12 @@
   
 }
 
+.container-forms form{
+  width: 80%;
+  margin: 0;
+}
+
+
 .container-forms input::placeholder{
     color: #000;
 }

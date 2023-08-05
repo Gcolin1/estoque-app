@@ -1,28 +1,32 @@
 <section class="container-forms">
     <div class="container-retirada">
         <h2>Retirada de estoque</h2>
-        <form>
-            <input type="text" placeholder="Código">
-            <input type="text" placeholder="Quantidade">
-            <input type="text" placeholder="Destino">
-            <input type="text" placeholder="Responsavel">
-            <input type="text" placeholder="Data">
-            <input type="text" placeholder="Horário">
-            <input type="text" placeholder="Motivo">
+        <form method="post" [formGroup]="retirada" (ngSubmit)="onSubmit(retirada)">
+            <div [formGroup]="idRetirada" (ngSubmit)="retirada">
+              <input formControlName="id" type="text" placeholder="Código">
+            </div>
+            <input formControlName="estoque" type="number" placeholder="Quantidade">
+            <input formControlName="destino" type="text" placeholder="Destino">
+            <input formControlName="motivo" type="text" placeholder="Motivo">
+            <input formControlName="responsavel" type="text" placeholder="Responsavel">
+            <input formControlName="data" type="text" placeholder="Data">
+            <input formControlName="hora" type="text" placeholder="Hora">
             <button class="btn-con" type="submit">Confirmar</button>
         </form>
     </div>
 
     <div  class="container-reposicao">
         <h2>Reposição de estoque</h2>
-        <form>
-            <input type="text" placeholder="Código">
-            <input type="text" placeholder="Quantidade">
-            <input type="text" placeholder="Destino">
-            <input type="text" placeholder="Responsavel">
-            <input type="text" placeholder="Data">
-            <input type="text" placeholder="Horário">
-            <input type="text" placeholder="Motivo">
+        <form method="post" [formGroup]="reposicao" (ngSubmit)="onSubmitRepor(reposicao)">
+          <div [formGroup]="idReposicao" (ngSubmit)="reposicao">
+            <input formControlName="id" type="text" placeholder="Código">
+          </div>
+          <input formControlName="estoque" type="number" placeholder="Quantidade">
+          <input formControlName="destino" type="text" placeholder="Destino">
+          <input formControlName="motivo" type="text" placeholder="Motivo">
+          <input formControlName="responsavel" type="text" placeholder="Responsavel">
+          <input formControlName="data" type="text" placeholder="Data">
+          <input formControlName="hora" type="text" placeholder="Hora">
             <button class="btn-con" type="submit">Confirmar</button>
         </form>
     </div>

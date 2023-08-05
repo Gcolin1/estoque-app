@@ -17,8 +17,12 @@ export class ListaMovimentacaoService{
   }
 
   //função que vai enviar os dados do form para a api
-  cadastrar(cadastro: any){
-    return this.http.post(this.urlApi, cadastro)
+  Retirar(cadastro: any, id : any){
+    return this.http.put(`${this.urlApi}/${id}`, cadastro)
+  }
+
+  Repor(cadastro: any, id : any){
+    return this.http.put(`${this.urlApi}/repor/${id}`, cadastro)
   }
 
 }
