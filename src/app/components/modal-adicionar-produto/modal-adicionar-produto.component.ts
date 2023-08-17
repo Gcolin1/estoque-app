@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ListaProdutoService } from 'src/app/layout/home/home.service';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-modal-adicionar-produto',
@@ -25,13 +26,26 @@ export class ModalAdicionarProdutoComponent {
       precoVenda: new FormControl('', Validators.required)
     })
   }
+
+  
   
   onSubmit(cadastro : FormGroup) {
-      console.log(this.cadastro)
-        this.service.cadastrar(this.cadastro.value).subscribe(res => {
-          console.log(res)
-          location.reload()
-      })
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        data: 'Tem certeza que deseja adicionar o produto?',
+      });
+    
+      dialogRef.afterClosed().subscribe((result : boolean) => {
+        if(result){
+          this.service.cadastrar(this.cadastro.value).subscribe(res => {
+            alert("produto adicionado com sucesso")
+            location.reload()
+          },
+          () => {
+            alert("Erro ao adicionar o produto")
+          }
+          )
+        }
+      });
   }
 
 }

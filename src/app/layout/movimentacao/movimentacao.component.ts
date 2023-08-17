@@ -79,20 +79,29 @@ export class MovimentacaoComponent implements AfterViewInit{
     //console.log(this.idRetirada.value.id)
     //console.log(JSON.stringify(this.retirada.value))
     //função que esta enviando os dados do form para o service
+    if(this.retirada.valid){
       this.service.Retirar(this.retirada.value, this.idRetirada.value.id).subscribe(res => {
         console.log(res)
         location.reload()
       })
+    }else{
+      alert('produto invalido')
+    }
   }
 
   //função que vai ser chamada no html 
   onSubmitRepor(reposicao : FormGroup) {
     //console.log(this.idReposicao.value.id)
     //console.log(JSON.stringify(this.reposicao.value))
+    if(this.reposicao.valid){
       this.service.Repor(this.reposicao.value, this.idReposicao.value.id).subscribe(res => {
         console.log(res)
         location.reload()
       })
+    }else{
+      alert('produto invalido')
+    }
+      
   }
 }
 

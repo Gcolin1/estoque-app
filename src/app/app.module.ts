@@ -25,6 +25,7 @@ import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalAdicionarProdutoComponent } from './components/modal-adicionar-produto/modal-adicionar-produto.component';
 import { AlertEstoqueBaixoComponent } from './components/alert-estoque-baixo/alert-estoque-baixo.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 
 
@@ -41,6 +42,7 @@ import { AlertEstoqueBaixoComponent } from './components/alert-estoque-baixo/ale
     DashboardComponent,
     ModalAdicionarProdutoComponent,
     AlertEstoqueBaixoComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

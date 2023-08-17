@@ -7,6 +7,7 @@ import { ModalAdicionarProdutoComponent } from 'src/app/components/modal-adicion
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { AlertEstoqueBaixoComponent } from 'src/app/components/alert-estoque-baixo/alert-estoque-baixo.component';
+import { ConfirmationDialogComponent } from 'src/app/components/confirmation-dialog/confirmation-dialog.component';
 
 
 @Component({
@@ -82,6 +83,25 @@ export class HomeComponent implements AfterViewInit {
       this.service.cadastrar(this.cadastro.value).subscribe(res => {
         console.log(res)
       })
+  }
+
+  excluirProduto(produto : Produto){
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: 'Tem certeza que deseja remover o produto?',
+    });
+
+    dialogRef.afterClosed().subscribe((result : boolean) => {
+      if(result){
+        this.service.deletar(produto.id).subscribe(() => {
+          alert('Produto excluido com sucesso')
+          location.reload()
+        },
+        () => {
+          alert("Erro ao excluir o produto")
+        }
+        )
+      }
+    });
   }
 }
 

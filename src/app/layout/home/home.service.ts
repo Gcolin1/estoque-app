@@ -22,4 +22,8 @@ export class ListaProdutoService{
     return this.http.post(this.urlApi, cadastro)
   }
 
+  deletar(id : any){
+    return this.http.delete(`${this.urlApi}/${id}`)
+  }
+
 }

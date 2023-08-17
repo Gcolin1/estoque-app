@@ -116,3 +116,21 @@
   background-color: rgb(214, 134, 42);
   transition: ease-in-out 200ms;
 }
+
+.acoes{
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.icon-acoes{
+  border: none;
+  background: none;
+  margin: 0 5px; 
+  margin-left: 10px;
+  cursor: pointer;
+} 
+
+.icon-acoes:nth-child(1){
+  color: #a02a2a;
+}

@@ -3,15 +3,15 @@
         <h2>Retirada de estoque</h2>
         <form method="post" [formGroup]="retirada" (ngSubmit)="onSubmit(retirada)">
             <div [formGroup]="idRetirada" (ngSubmit)="retirada">
-              <input formControlName="id" type="text" placeholder="Código">
+              <input formControlName="id" type="text" placeholder="Código" required ngModel>
             </div>
-            <input formControlName="estoque" type="number" placeholder="Quantidade">
-            <input formControlName="destino" type="text" placeholder="Destino">
-            <input formControlName="motivo" type="text" placeholder="Motivo">
-            <input formControlName="responsavel" type="text" placeholder="Responsavel">
-            <input formControlName="data" type="text" placeholder="Data">
-            <input formControlName="hora" type="text" placeholder="Hora">
-            <select formControlName="tipo_de_movimentacao" type="select" placeholder="Tipo">
+            <input formControlName="estoque" type="number" placeholder="Quantidade" required>
+            <input formControlName="destino" type="text" placeholder="Destino" required>
+            <input formControlName="motivo" type="text" placeholder="Motivo" required>
+            <input formControlName="responsavel" type="text" placeholder="Responsavel" required>
+            <input formControlName="data" type="text" placeholder="Data" required>
+            <input formControlName="hora" type="text" placeholder="Hora" required> 
+            <select formControlName="tipo_de_movimentacao" type="select" placeholder="Tipo" required>
               <option value="retirada">Retirada</option>
             </select>
             <button class="btn-con" type="submit">Confirmar</button>
@@ -22,15 +22,15 @@
         <h2>Reposição de estoque</h2>
         <form method="post" [formGroup]="reposicao" (ngSubmit)="onSubmitRepor(reposicao)">
           <div [formGroup]="idReposicao" (ngSubmit)="reposicao">
-            <input formControlName="id" type="text" placeholder="Código">
+            <input formControlName="id" type="text" placeholder="Código" required>
           </div>
-          <input formControlName="estoque" type="number" placeholder="Quantidade">
-          <input formControlName="destino" type="text" placeholder="Destino">
-          <input formControlName="motivo" type="text" placeholder="Motivo">
-          <input formControlName="responsavel" type="text" placeholder="Responsavel">
-          <input formControlName="data" type="text" placeholder="Data">
-          <input formControlName="hora" type="text" placeholder="Hora">
-          <select formControlName="tipo_de_movimentacao" type="select" placeholder="Tipo">
+          <input formControlName="estoque" type="number" placeholder="Quantidade" required>
+          <input formControlName="destino" type="text" placeholder="Destino" required> 
+          <input formControlName="motivo" type="text" placeholder="Motivo" required>
+          <input formControlName="responsavel" type="text" placeholder="Responsavel" required>
+          <input formControlName="data" type="text" placeholder="Data" required>
+          <input formControlName="hora" type="text" placeholder="Hora" required>
+          <select formControlName="tipo_de_movimentacao" type="select" placeholder="Tipo" required>
             <option value="reposição">Reposição</option>
           </select>
             <button class="btn-con" type="submit">Confirmar</button>
