@@ -4,8 +4,8 @@ export interface Produto{
     categoria: string
     descricao: string
     medida: string
-    estoque: Number
+    estoque: number
     fornecedor : String
-    preco_custo: Number
-    preco_venda: Number
+    preco_custo: number
+    preco_venda: number
 }

@@ -1,0 +1,18 @@
+<section class="container">
+    <div class="container-form">
+        <form method="post" method="post" [formGroup]="cadastro" (ngSubmit)="onSubmit(cadastro)">
+            <input formControlName="nome" type="text" placeholder="Nome">
+            <input formControlName="categoria" type="text" placeholder="Categoria">
+            <input formControlName="descricao" type="text" placeholder="Descricao">
+            <input formControlName="medida" type="text" placeholder="Medida">
+            <input formControlName="estoque" type="number" placeholder="Quantidade">
+            <input formControlName="fornecedor" type="text" placeholder="Fornecedor">
+            <input formControlName="precoCusto" type="number" placeholder="Preco de custo">
+            <input formControlName="precoVenda" type="number" placeholder="Preco de venda">
+            <div class="buttons">
+                <button class="btn-con" type="submit">Confirmar</button>
+                <button class="btn-con" mat-dialog-close >Cancelar</button>
+            </div>
+          </form>
+    </div>
+</section>

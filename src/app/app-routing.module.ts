@@ -7,6 +7,7 @@ import { CreateAccountComponent } from './account/create-account/create-account.
 import { authGuard } from './account/shared/auth.guard';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { MovimentacaoComponent } from './layout/movimentacao/movimentacao.component';
+import { DashboardComponent } from './layout/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
     component: SidebarComponent,
     children: [
       {path: '', component:  HomeComponent},
-      {path: 'movimentacao', component : MovimentacaoComponent}
+      {path: 'movimentacao', component : MovimentacaoComponent},
+      {path: 'dashboard', component : DashboardComponent}
     ],  
     //canActivate: [authGuard]
   },

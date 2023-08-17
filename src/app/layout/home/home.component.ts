@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Produto } from '../../Produto';
 import { ListaProdutoService } from './home.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { ModalAdicionarProdutoComponent } from 'src/app/components/modal-adicionar-produto/modal-adicionar-produto.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -11,13 +14,22 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./home.component.css'],
 })
 
-export class HomeComponent {
-
-  public produtos : Produto[] = []
-
+export class HomeComponent implements AfterViewInit {
   cadastro : FormGroup
+  produtos : Produto[] = []
 
-  constructor(private service : ListaProdutoService){
+  //tabela
+  displayedColumns: string[] = ['id', 'nome', 'categoria', 'descricao', 'medida', 'estoque', 'fornecedor', 'preco_custo', 'preco_venda'];
+  dataSource = new MatTableDataSource<Produto>(this.produtos);
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+   this.getAllProducts()
+  }
+
+
+  constructor(private service : ListaProdutoService, public dialog: MatDialog){
 
     //montando formgroup 
     this.cadastro = new FormGroup({
@@ -32,16 +44,39 @@ export class HomeComponent {
     })
   }
 
+
+  //função abrir modal
+  openDialog() {
+    const dialogRef = this.dialog.open(ModalAdicionarProdutoComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+ 
   ngOnInit(){
-    this.getAllProducts()
+    
   }
 
-  getAllProducts() : void {
+  getAllProducts() : void{
     this.service.getProdutos().subscribe((res) => {
       this.produtos = res
-      console.log(this.produtos)
+      this.dataSource = new MatTableDataSource<Produto>(this.produtos);
+      this.dataSource.paginator = this.paginator;
     })
   }
+
+ verificarEstoque(): void{
+    this.service.getProdutos().subscribe((res) => {
+      this.produtos = res
+      for(let i = 0; i < this.produtos.length; i++){
+        if(this.produtos[i].estoque <= 10){
+            alert(`o estoque do produto ${this.produtos[i].nome} esta baixo`)
+        }
+      }
+    })
+  }
+
 
   //função que vai ser chamada no htnl 
   onSubmit(cadastro : FormGroup) {
@@ -52,4 +87,5 @@ export class HomeComponent {
       })
   }
 }
+
 

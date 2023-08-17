@@ -1,7 +1,8 @@
 
        <div class="container-busca">
            <div class="busca">
-            <button class="button-adicionar">Adicionar</button>
+            <button class="button-verificar" (click)="verificarEstoque()">Verificar estoque baixo</button>
+            <button class="button-adicionar" (click)="openDialog()">Adicionar</button>
              <input type="text">
              <button class="button-busca">
               <mat-icon class="busca-icon" aria-hidden="true" aria-label="Example-home-icon" fontIcon="search"></mat-icon>
@@ -9,35 +10,64 @@
            </div>
         </div>
 
-        <div>
-          <table class="tabela">
-            <thead>
-              <tr>
-                <th>Código</th>
-                <th>Nome</th>
-                <th>Categoria</th>
-                <th>Descrição</th>
-                <th>Medida</th>
-                <th>Estoque</th>
-                <th>Fornecedor</th>
-                <th>Preço de custo</th>
-                <th>Preço de venda</th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let produto of produtos">
-              <tr>
-                <td>{{ produto.id }}</td>
-                <td>{{ produto.nome  }}</td>
-                <td>{{ produto.categoria  }}</td>
-                <td>{{ produto.descricao  }}</td>
-                <td>{{ produto.medida  }}</td>
-                <td>{{ produto.estoque  }}</td>
-                <td>{{ produto.fornecedor  }}</td>
-                <td>{{ produto.preco_custo  }}</td>
-                <td>{{ produto.preco_venda  }}</td>
-              </tr>
-              
-            </tbody>
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource">
+        
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> Código </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef> Nome </th>
+              <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="categoria">
+              <th mat-header-cell *matHeaderCellDef> Categoria </th>
+              <td mat-cell *matCellDef="let element"> {{element.categoria}} </td>
+            </ng-container>
+        
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="descricao">
+              <th mat-header-cell *matHeaderCellDef> Descrição </th>
+              <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="medida">
+              <th mat-header-cell *matHeaderCellDef> Medida </th>
+              <td mat-cell *matCellDef="let element"> {{element.medida}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="estoque">
+              <th mat-header-cell *matHeaderCellDef> Estoque </th>
+              <td mat-cell *matCellDef="let element"> {{element.estoque}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fornecedor">
+              <th mat-header-cell *matHeaderCellDef> Fornecedor </th>
+              <td mat-cell *matCellDef="let element"> {{element.fornecedor}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="preco_custo">
+              <th mat-header-cell *matHeaderCellDef> Preço de custo </th>
+              <td mat-cell *matCellDef="let element"> {{element.preco_custo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="preco_venda">
+              <th mat-header-cell *matHeaderCellDef> Preço de venda </th>
+              <td mat-cell *matCellDef="let element"> {{element.preco_venda}} </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
+        
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                         showFirstLastButtons
+                         aria-label="Select page of periodic elements">
+          </mat-paginator>
         </div>
-  

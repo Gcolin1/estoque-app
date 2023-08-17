@@ -1,0 +1,41 @@
+.container{
+    padding: 50px;
+    border-top: solid 10px #FFB661;
+}
+
+.container-form form{
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons{
+    margin-top: 30px;
+}
+
+.buttons button{
+    padding: 10px 15px;
+    border: none;
+    margin: 0 10px;
+    font-size: 1em;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+button:nth-child(1){
+    background-color: #2aa036;
+    color: #f1f1f1;
+}
+
+button:hover{
+    opacity: 0.8;
+}
+
+.container-form input{
+    width: 300px;
+    padding: 10px 10px;
+    margin: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+}

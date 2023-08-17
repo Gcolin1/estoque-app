@@ -11,6 +11,9 @@
             <input formControlName="responsavel" type="text" placeholder="Responsavel">
             <input formControlName="data" type="text" placeholder="Data">
             <input formControlName="hora" type="text" placeholder="Hora">
+            <select formControlName="tipo_de_movimentacao" type="select" placeholder="Tipo">
+              <option value="retirada">Retirada</option>
+            </select>
             <button class="btn-con" type="submit">Confirmar</button>
         </form>
     </div>
@@ -27,6 +30,9 @@
           <input formControlName="responsavel" type="text" placeholder="Responsavel">
           <input formControlName="data" type="text" placeholder="Data">
           <input formControlName="hora" type="text" placeholder="Hora">
+          <select formControlName="tipo_de_movimentacao" type="select" placeholder="Tipo">
+            <option value="reposição">Reposição</option>
+          </select>
             <button class="btn-con" type="submit">Confirmar</button>
         </form>
     </div>
@@ -35,31 +41,60 @@
 <section class="container-table">
     <h2>Movimentação</h2>
 
-    <div>
-        <table class="tabela">
-          <thead>
-            <tr>
-              <th>Código</th>
-              <th>Quantidade retirada</th>
-              <th>Destino</th>
-              <th>Motivo</th>
-              <th>Responsavel</th>
-              <th>Data</th>
-              <th>Hora</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let movimentacao of movimentacao">
-            <tr>
-              <td>{{ movimentacao.id_produto }}</td>
-              <td>{{ movimentacao.estoque }}</td>
-              <td>{{ movimentacao.destino }}</td>
-              <td>{{ movimentacao.motivo }}</td>
-              <td>{{ movimentacao.responsavel }}</td>
-              <td>{{ movimentacao.data }}</td>
-              <td>{{ movimentacao.hora }}</td>
-            </tr>
-            
-          </tbody>
-        </table>
-      </div>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="id_produto">
+          <th mat-header-cell *matHeaderCellDef> Código </th>
+          <td mat-cell *matCellDef="let element"> {{element.id_produto}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="estoque">
+          <th mat-header-cell *matHeaderCellDef> Estoque </th>
+          <td mat-cell *matCellDef="let element"> {{element.estoque}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="destino">
+          <th mat-header-cell *matHeaderCellDef> Destino </th>
+          <td mat-cell *matCellDef="let element"> {{element.destino}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="motivo">
+          <th mat-header-cell *matHeaderCellDef> Motivo </th>
+          <td mat-cell *matCellDef="let element"> {{element.motivo}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="responsavel">
+          <th mat-header-cell *matHeaderCellDef> Responsavel </th>
+          <td mat-cell *matCellDef="let element"> {{element.responsavel}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="data">
+          <th mat-header-cell *matHeaderCellDef> Data </th>
+          <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="hora">
+          <th mat-header-cell *matHeaderCellDef> Hora </th>
+          <td mat-cell *matCellDef="let element"> {{element.hora}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipo_de_movimentacao">
+          <th mat-header-cell *matHeaderCellDef> Tipo </th>
+          <td mat-cell *matCellDef="let element"> {{element.tipo_de_movimentacao}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
 </section>

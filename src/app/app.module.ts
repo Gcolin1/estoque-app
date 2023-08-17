@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,6 +8,10 @@ import { CreateAccountComponent } from './account/create-account/create-account.
 import { HomeComponent } from './layout/home/home.component';
 import { AuthenticationComponent } from './layout/authentication/authentication.component';
 import {MatButtonModule} from '@angular/material/button';
+
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
 import {NgIf} from '@angular/common';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
@@ -18,6 +21,9 @@ import { ListaProdutoService } from './layout/home/home.service';
 import { MatTableModule } from '@angular/material/table';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { MovimentacaoComponent } from './layout/movimentacao/movimentacao.component';
+import { DashboardComponent } from './layout/dashboard/dashboard.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalAdicionarProdutoComponent } from './components/modal-adicionar-produto/modal-adicionar-produto.component';
 
 
 
@@ -30,7 +36,9 @@ import { MovimentacaoComponent } from './layout/movimentacao/movimentacao.compon
     HomeComponent,
     AuthenticationComponent,
     SidebarComponent,
-    MovimentacaoComponent
+    MovimentacaoComponent,
+    DashboardComponent,
+    ModalAdicionarProdutoComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +52,9 @@ import { MovimentacaoComponent } from './layout/movimentacao/movimentacao.compon
     MatTableModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule, 
+    MatButtonModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

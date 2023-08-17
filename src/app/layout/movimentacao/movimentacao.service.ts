@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Movimentacao } from "src/app/Movimentacao";
+import { Observable } from "rxjs";
 
 
 @Injectable({
@@ -12,8 +14,8 @@ export class ListaMovimentacaoService{
 
   constructor(private http : HttpClient) { }
 
-  getMovimentacao(){
-    return this.http.get<any>(this.urlApi)
+  getMovimentacao(): Observable<Movimentacao[]>{
+    return this.http.get<Movimentacao[]>(`${this.urlApi}`)
   }
 
   //função que vai enviar os dados do form para a api
