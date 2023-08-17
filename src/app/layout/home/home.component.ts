@@ -6,6 +6,7 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { ModalAdicionarProdutoComponent } from 'src/app/components/modal-adicionar-produto/modal-adicionar-produto.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { AlertEstoqueBaixoComponent } from 'src/app/components/alert-estoque-baixo/alert-estoque-baixo.component';
 
 
 @Component({
@@ -53,6 +54,14 @@ export class HomeComponent implements AfterViewInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  openAlert() {
+    const dialogRef = this.dialog.open(AlertEstoqueBaixoComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
  
   ngOnInit(){
     
@@ -65,18 +74,6 @@ export class HomeComponent implements AfterViewInit {
       this.dataSource.paginator = this.paginator;
     })
   }
-
- verificarEstoque(): void{
-    this.service.getProdutos().subscribe((res) => {
-      this.produtos = res
-      for(let i = 0; i < this.produtos.length; i++){
-        if(this.produtos[i].estoque <= 10){
-            alert(`o estoque do produto ${this.produtos[i].nome} esta baixo`)
-        }
-      }
-    })
-  }
-
 
   //função que vai ser chamada no htnl 
   onSubmit(cadastro : FormGroup) {

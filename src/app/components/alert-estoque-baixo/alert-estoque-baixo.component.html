@@ -1,0 +1,9 @@
+<section class="container">
+    <h1>Produtos com estoque baixo</h1>
+    <div *ngFor="let alert of produtosBaixos">
+        <p>O produto {{ alert.nome }} código {{ alert.id }} esta com estoque baixo de apenas {{alert.estoque}}{{alert.medida}}</p>
+    </div>
+    <div *ngIf="!produtosBaixos[0]">
+        <p>Nenhum produto com estoque baixo</p>
+    </div>
+</section>

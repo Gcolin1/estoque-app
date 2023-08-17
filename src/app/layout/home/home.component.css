@@ -37,6 +37,11 @@
     text-transform: uppercase;
  }
 
+ table td:nth-child(even){
+  background-color: rgba(80, 131, 173, 0.259);
+}
+
+
 .container-busca{
   display: flex;
   justify-content: end;
